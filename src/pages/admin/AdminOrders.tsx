@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ordersApi, trackingStagesApi } from '../../lib/supabaseClient';
 import { Loader2, Search, Edit2, ChevronDown, Check, Plus, Trash2, RefreshCw } from 'lucide-react';
 
@@ -228,7 +228,7 @@ export function AdminOrders() {
 
       {/* Delete Confirmation Modal */}
       {orderToDelete && (
-        <div className="fixed inset-0 bg-black/40 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+        <div className="fixed inset-0 bg-black/40 backdrop-blur-sm z-[60] flex items-center justify-center p-4">
           <div className="bg-white dark:bg-gray-900 rounded-2xl max-w-sm w-full p-6 shadow-2xl text-center">
             <div className="w-16 h-16 bg-red-100 dark:bg-red-900/30 text-red-600 rounded-full flex items-center justify-center mx-auto mb-4">
               <Trash2 size={28} />
@@ -245,10 +245,13 @@ export function AdminOrders() {
 
       {/* Editing Modal */}
       {isEditing && currentOrder && (
-        <div className="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm flex items-end sm:items-center justify-center sm:p-4">
-          <div className="bg-white dark:bg-card w-full sm:rounded-2xl max-w-3xl flex flex-col h-[90vh] sm:h-auto sm:max-h-[90vh] rounded-t-2xl">
+        <div className="fixed inset-0 z-[60] bg-black/50 backdrop-blur-sm flex items-end sm:items-center justify-center sm:p-4">
+          <div className="bg-white dark:bg-card w-full sm:rounded-2xl max-w-3xl flex flex-col h-[95vh] sm:h-auto sm:max-h-[90vh] rounded-t-3xl sm:rounded-t-2xl relative">
+            <button onClick={() => setIsEditing(false)} className="absolute top-4 sm:top-6 right-4 sm:right-6 text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 transition-colors bg-gray-100 p-1.5 rounded-full dark:bg-gray-800 z-10 w-8 h-8 flex items-center justify-center">
+              ✕
+            </button>
             <div className="p-4 sm:p-6 border-b dark:border-gray-800 flex justify-between items-start sm:items-center">
-              <div>
+              <div className="pr-10">
                 <h2 className="text-lg sm:text-xl font-bold dark:text-white">Редактирование: {currentOrder.order_number}</h2>
                 <p className="text-xs sm:text-sm text-gray-500 mt-1 truncate max-w-[250px] sm:max-w-none">{currentOrder.customer_name} — {currentOrder.cars?.brand} {currentOrder.cars?.name}</p>
               </div>
@@ -261,7 +264,7 @@ export function AdminOrders() {
                   <select 
                     value={currentOrder.status}
                     onChange={e => setCurrentOrder({...currentOrder, status: e.target.value})}
-                    className="w-full px-3 py-2 border rounded-lg bg-gray-50 text-gray-900 focus:bg-white focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all dark:bg-gray-800 dark:border-gray-700 dark:text-white"
+                    className="w-full px-3 py-2 border rounded-lg bg-gray-50 text-gray-900 focus:bg-white dark:focus:bg-gray-700 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all dark:bg-gray-800 dark:border-gray-700 dark:text-white"
                   >
                     <option value="pending">Ожидает (Pending)</option>
                     <option value="processing">В процессе (Processing)</option>
@@ -280,7 +283,7 @@ export function AdminOrders() {
                         current_stage: parseInt(e.target.value, 10)
                       }
                     })}
-                    className="w-full px-3 py-2 border rounded-lg font-medium outline-none transition-all bg-gray-50 text-gray-900 focus:bg-white focus:border-primary focus:ring-2 focus:ring-primary/20 dark:bg-gray-800 dark:border-gray-700 dark:text-white"
+                    className="w-full px-3 py-2 border rounded-lg font-medium outline-none transition-all bg-gray-50 text-gray-900 focus:bg-white dark:focus:bg-gray-700 focus:border-primary focus:ring-2 focus:ring-primary/20 dark:bg-gray-800 dark:border-gray-700 dark:text-white"
                   >
                     {currentOrder.tracking_info?.stages?.map((stage: any, idx: number) => (
                       <option key={idx} value={idx + 1}>
