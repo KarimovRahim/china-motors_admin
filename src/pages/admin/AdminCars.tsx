@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { carsApi } from '../../lib/supabaseClient';
 import { Plus, Edit2, Trash2, XCircle, Loader2 } from 'lucide-react';
 
@@ -124,25 +124,25 @@ export function AdminCars() {
               <div className="grid grid-cols-2 gap-4">
                 <div className="col-span-2 sm:col-span-1">
                   <label className="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1.5">Бренд *</label>
-                  <input type="text" value={currentCar.brand || ''} onChange={e => setCurrentCar({...currentCar, brand: e.target.value})} className="w-full px-3 py-2 text-sm border rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all dark:bg-gray-800 dark:border-gray-700 dark:text-white bg-gray-50 focus:bg-white" />
+                  <input type="text" value={currentCar.brand || ''} onChange={e => setCurrentCar({...currentCar, brand: e.target.value})} className="w-full px-3 py-2 text-sm border rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all dark:bg-gray-800 dark:border-gray-700 dark:text-white bg-gray-50 focus:bg-white dark:focus:bg-gray-700" />
                 </div>
                 <div className="col-span-2 sm:col-span-1">
                   <label className="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1.5">Название *</label>
-                  <input type="text" value={currentCar.name || ''} onChange={e => setCurrentCar({...currentCar, name: e.target.value})} className="w-full px-3 py-2 text-sm border rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all dark:bg-gray-800 dark:border-gray-700 dark:text-white bg-gray-50 focus:bg-white" />
+                  <input type="text" value={currentCar.name || ''} onChange={e => setCurrentCar({...currentCar, name: e.target.value})} className="w-full px-3 py-2 text-sm border rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all dark:bg-gray-800 dark:border-gray-700 dark:text-white bg-gray-50 focus:bg-white dark:focus:bg-gray-700" />
                 </div>
                 
                 <div>
                   <label className="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1.5">Цена TJS *</label>
-                  <input type="number" value={currentCar.price || ''} onChange={e => setCurrentCar({...currentCar, price: e.target.value})} className="w-full px-3 py-2 text-sm border rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all dark:bg-gray-800 dark:border-gray-700 dark:text-white bg-gray-50 focus:bg-white" />
+                  <input type="number" value={currentCar.price || ''} onChange={e => setCurrentCar({...currentCar, price: e.target.value})} className="w-full px-3 py-2 text-sm border rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all dark:bg-gray-800 dark:border-gray-700 dark:text-white bg-gray-50 focus:bg-white dark:focus:bg-gray-700" />
                 </div>
                 <div>
                   <label className="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1.5">Цена USD</label>
-                  <input type="text" value={currentCar.price_usd || ''} onChange={e => setCurrentCar({...currentCar, price_usd: e.target.value})} placeholder="$25,000" className="w-full px-3 py-2 text-sm border rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all dark:bg-gray-800 dark:border-gray-700 dark:text-white bg-gray-50 focus:bg-white" />
+                  <input type="text" value={currentCar.price_usd || ''} onChange={e => setCurrentCar({...currentCar, price_usd: e.target.value})} placeholder="$25,000" className="w-full px-3 py-2 text-sm border rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all dark:bg-gray-800 dark:border-gray-700 dark:text-white bg-gray-50 focus:bg-white dark:focus:bg-gray-700" />
                 </div>
 
                 <div className="col-span-2 sm:col-span-1">
                   <label className="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1.5">Тип</label>
-                  <select value={currentCar.type || 'Электромобиль'} onChange={e => setCurrentCar({...currentCar, type: e.target.value})} className="w-full px-3 py-2 text-sm border rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all bg-gray-50 text-gray-900 dark:bg-gray-800 dark:border-gray-700 dark:text-white focus:bg-white">
+                  <select value={currentCar.type || 'Электромобиль'} onChange={e => setCurrentCar({...currentCar, type: e.target.value})} className="w-full px-3 py-2 text-sm border rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all bg-gray-50 text-gray-900 dark:bg-gray-800 dark:border-gray-700 dark:text-white focus:bg-white dark:focus:bg-gray-700">
                     <option value="Электромобиль">Электромобиль</option>
                     <option value="Гибрид">Гибрид</option>
                     <option value="ДВС">ДВС</option>
@@ -150,32 +150,32 @@ export function AdminCars() {
                 </div>
                 <div className="col-span-2 sm:col-span-1">
                   <label className="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1.5">Страна *</label>
-                  <input type="text" value={currentCar.country || ''} onChange={e => setCurrentCar({...currentCar, country: e.target.value})} className="w-full px-3 py-2 text-sm border rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all dark:bg-gray-800 dark:border-gray-700 dark:text-white bg-gray-50 focus:bg-white" />
+                  <input type="text" value={currentCar.country || ''} onChange={e => setCurrentCar({...currentCar, country: e.target.value})} className="w-full px-3 py-2 text-sm border rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all dark:bg-gray-800 dark:border-gray-700 dark:text-white bg-gray-50 focus:bg-white dark:focus:bg-gray-700" />
                 </div>
 
                 <div className="col-span-2 grid grid-cols-2 sm:grid-cols-4 gap-3">
                   <div>
                     <label className="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1.5">Год</label>
-                    <input type="number" value={currentCar.year || ''} onChange={e => setCurrentCar({...currentCar, year: e.target.value})} className="w-full px-2 py-2 text-sm border rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all dark:bg-gray-800 dark:border-gray-700 dark:text-white bg-gray-50 focus:bg-white" />
+                    <input type="number" value={currentCar.year || ''} onChange={e => setCurrentCar({...currentCar, year: e.target.value})} className="w-full px-2 py-2 text-sm border rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all dark:bg-gray-800 dark:border-gray-700 dark:text-white bg-gray-50 focus:bg-white dark:focus:bg-gray-700" />
                   </div>
                   <div>
                     <label className="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1.5">Л.С.</label>
-                    <input type="number" value={currentCar.power_hp || ''} onChange={e => setCurrentCar({...currentCar, power_hp: e.target.value})} className="w-full px-2 py-2 text-sm border rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all dark:bg-gray-800 dark:border-gray-700 dark:text-white bg-gray-50 focus:bg-white" />
+                    <input type="number" value={currentCar.power_hp || ''} onChange={e => setCurrentCar({...currentCar, power_hp: e.target.value})} className="w-full px-2 py-2 text-sm border rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all dark:bg-gray-800 dark:border-gray-700 dark:text-white bg-gray-50 focus:bg-white dark:focus:bg-gray-700" />
                   </div>
                   <div>
                     <label className="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1.5">Запас</label>
-                    <input type="number" value={currentCar.range_km || ''} onChange={e => setCurrentCar({...currentCar, range_km: e.target.value})} className="w-full px-2 py-2 text-sm border rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all dark:bg-gray-800 dark:border-gray-700 dark:text-white bg-gray-50 focus:bg-white" />
+                    <input type="number" value={currentCar.range_km || ''} onChange={e => setCurrentCar({...currentCar, range_km: e.target.value})} className="w-full px-2 py-2 text-sm border rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all dark:bg-gray-800 dark:border-gray-700 dark:text-white bg-gray-50 focus:bg-white dark:focus:bg-gray-700" />
                   </div>
                   <div>
                     <label className="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1.5">0-100</label>
-                    <input type="text" value={currentCar.acceleration || ''} onChange={e => setCurrentCar({...currentCar, acceleration: e.target.value})} placeholder="3.5s" className="w-full px-2 py-2 text-sm border rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all dark:bg-gray-800 dark:border-gray-700 dark:text-white bg-gray-50 focus:bg-white" />
+                    <input type="text" value={currentCar.acceleration || ''} onChange={e => setCurrentCar({...currentCar, acceleration: e.target.value})} placeholder="3.5s" className="w-full px-2 py-2 text-sm border rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all dark:bg-gray-800 dark:border-gray-700 dark:text-white bg-gray-50 focus:bg-white dark:focus:bg-gray-700" />
                   </div>
                 </div>
 
                 <div className="col-span-2">
                   <label className="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1.5">Фото</label>
                   <div className="flex flex-col sm:flex-row gap-3">
-                    <input type="text" value={currentCar.image_url || ''} onChange={e => setCurrentCar({...currentCar, image_url: e.target.value})} placeholder="Вставьте URL картинки" className="flex-1 w-full px-3 py-2 text-sm border rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all dark:bg-gray-800 dark:border-gray-700 dark:text-white bg-gray-50 focus:bg-white" />
+                    <input type="text" value={currentCar.image_url || ''} onChange={e => setCurrentCar({...currentCar, image_url: e.target.value})} placeholder="Вставьте URL картинки" className="flex-1 w-full px-3 py-2 text-sm border rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all dark:bg-gray-800 dark:border-gray-700 dark:text-white bg-gray-50 focus:bg-white dark:focus:bg-gray-700" />
                     <label className="cursor-pointer bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 px-4 py-2 text-sm rounded-lg font-medium hover:bg-gray-50 dark:hover:bg-gray-700 transition flex items-center justify-center text-center">
                       С устройства
                       <input type="file" accept="image/*" onChange={handleImageUpload} className="hidden" />
@@ -214,7 +214,7 @@ export function AdminCars() {
       )}
 
       {carToDelete && (
-        <div className="fixed inset-0 bg-black/40 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+        <div className="fixed inset-0 bg-black/40 backdrop-blur-sm z-[60] flex items-center justify-center p-4">
           <div className="bg-white dark:bg-gray-900 rounded-2xl max-w-sm w-full p-6 shadow-2xl text-center">
             <div className="w-16 h-16 bg-red-100 dark:bg-red-900/30 text-red-600 rounded-full flex items-center justify-center mx-auto mb-4">
               <Trash2 size={28} />
