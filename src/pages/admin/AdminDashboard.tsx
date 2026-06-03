@@ -57,29 +57,30 @@ export function AdminDashboard() {
   }
 
   return (
-    <div className="space-y-6">
-      <h1 className="text-3xl font-display font-bold text-gray-900 dark:text-foreground">Обзор системы</h1>
+    <div className="space-y-4 sm:space-y-6">
+      <h1 className="text-2xl sm:text-3xl font-display font-bold text-gray-900 dark:text-foreground px-1">Обзор системы</h1>
       
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
         {statCards.map((stat, i) => (
-          <div key={i} className="bg-white dark:bg-card rounded-2xl p-6 shadow-sm border border-gray-100 dark:border-border">
-            <div className="flex items-center justify-between">
+          <div key={i} className="bg-white dark:bg-card rounded-2xl p-3 sm:p-6 shadow-sm border border-gray-100 dark:border-border flex flex-col justify-between">
+            <div className="flex items-start justify-between">
               <div>
-                <p className="text-sm font-medium text-gray-500 dark:text-gray-400">{stat.label}</p>
-                <p className="text-3xl font-bold mt-2 text-gray-900 dark:text-foreground">{stat.value}</p>
+                <p className="text-xs sm:text-sm font-medium text-gray-500 dark:text-gray-400 leading-tight">{stat.label}</p>
+                <p className="text-xl sm:text-3xl font-bold mt-1 sm:mt-2 text-gray-900 dark:text-foreground">{stat.value}</p>
               </div>
-              <div className={`p-4 rounded-xl ${stat.bg} ${stat.color} dark:bg-opacity-10`}>
-                <stat.icon size={24} />
+              <div className={`p-2 sm:p-4 rounded-xl ${stat.bg} ${stat.color} dark:bg-opacity-10 mt-0.5 sm:mt-0`}>
+                <stat.icon size={20} className="sm:hidden" />
+                <stat.icon size={24} className="hidden sm:block" />
               </div>
             </div>
           </div>
         ))}
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-8">
-        <div className="bg-white dark:bg-card rounded-2xl p-6 shadow-sm border border-gray-100 dark:border-border">
-          <h2 className="text-xl font-bold mb-4 dark:text-foreground">Быстрые действия</h2>
-          <div className="space-y-4">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 mt-6 sm:mt-8">
+        <div className="bg-white dark:bg-card rounded-2xl p-4 sm:p-6 shadow-sm border border-gray-100 dark:border-border">
+          <h2 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4 dark:text-foreground">Быстрые действия</h2>
+          <div className="space-y-2 sm:space-y-4">
             <Link to="/cars" className="block w-full text-left px-4 py-3 rounded-lg border hover:bg-gray-50 dark:hover:bg-gray-800 transition dark:text-foreground dark:border-border">
               Управление автомобилями
             </Link>
