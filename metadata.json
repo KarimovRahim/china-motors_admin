@@ -1,0 +1,8 @@
+{
+  "name": "Remix: React UI Replicator",
+  "description": "Reconstructs React interfaces with total visual fidelity, preserving layouts, Tailwind styles, and component architecture from uploaded source files.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
